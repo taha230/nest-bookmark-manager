@@ -231,3 +231,8 @@ curl -X DELETE "http://localhost:3000/bookmarks/<BOOKMARK_ID>"
 
 Now you have a small but complete NestJS backend that demonstrates how controllers and services work together to manage resources using a clean REST API.
 
+## 👤 Author
+
+**Taha Hamedani**  
+📧 [taha.hamedani8@gmail.com](mailto:taha.hamedani8@gmail.com)  
+
