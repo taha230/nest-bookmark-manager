@@ -45,18 +45,6 @@ The core logic of the app lives in the `bookmarks` module under `src/bookmarks`.
 
 The controller delegates all business operations to `BookmarksService`.
 
-### Service (Business Logic Layer)
-
-`BookmarksService` manages an in-memory array of `Bookmark` objects:
-
-- Initializes with one sample bookmark (NestJS docs).
-- **`findAll()`**: Returns all bookmarks.
-- **`findById(id)`**: Finds a single bookmark by its ID.
-- **`find(getBookmarkDto)`**: Applies optional filtering by `url` and `description`.
-- **`createBookmark(createBookmarkDto)`**: Creates a new bookmark with a generated UUID.
-- **`deleteBookmark(id)`**: Removes a bookmark from the in-memory list.
-- **`updateBookmarkDescription(id, description)`**: Updates only the description field.
-
 ---
 
 ## Getting Started
@@ -87,7 +75,6 @@ yarn build
 yarn start:prod
 ```
 
-By default, the app runs on `http://localhost:3000`.
 
 ---
 
@@ -95,79 +82,6 @@ By default, the app runs on `http://localhost:3000`.
 
 Base URL: `http://localhost:3000`
 
-### List & Search Bookmarks
-
-- **Endpoint**: `GET /bookmarks`
-- **Query params (optional)**:
-  - `url` – partial URL to match.
-  - `description` – partial description to match.
-
-**Example:**
-
-```bash
-curl "http://localhost:3000/bookmarks"
-
-curl "http://localhost:3000/bookmarks?url=google"
-
-curl "http://localhost:3000/bookmarks?description=nest"
-```
-
-### Get Bookmark by ID
-
-- **Endpoint**: `GET /bookmarks/:id`
-
-```bash
-curl "http://localhost:3000/bookmarks/<BOOKMARK_ID>"
-```
-
-### Create a Bookmark
-
-- **Endpoint**: `POST /bookmarks`
-- **Body (JSON)**:
-
-```json
-{
-  "url": "https://google.com",
-  "description": "Google Search"
-}
-```
-
-**Example:**
-
-```bash
-curl -X POST "http://localhost:3000/bookmarks" \
-  -H "Content-Type: application/json" \
-  -d '{"url":"https://google.com","description":"Google Search"}'
-```
-
-### Update Bookmark Description
-
-- **Endpoint**: `PATCH /bookmarks/:id/description`
-- **Body (JSON)**:
-
-```json
-{
-  "description": "Updated description"
-}
-```
-
-**Example:**
-
-```bash
-curl -X PATCH "http://localhost:3000/bookmarks/<BOOKMARK_ID>/description" \
-  -H "Content-Type: application/json" \
-  -d '{"description":"Updated description"}'
-```
-
-### Delete a Bookmark
-
-- **Endpoint**: `DELETE /bookmarks/:id`
-
-```bash
-curl -X DELETE "http://localhost:3000/bookmarks/<BOOKMARK_ID>"
-```
-
----
 
 ## Step-by-Step Tutorial
 
